@@ -6,6 +6,11 @@ using static UnityEngine.GraphicsBuffer;
 
 public class TopDownMovement : MonoBehaviour
 {
+    [SerializeField] private float daño;
+    [SerializeField] private float vida;
+    private float horizontalInput;
+    public bala proyectilprefab;
+        public Transform LanuchOffset;
     [SerializeField] private float speed;
     [SerializeField] private Vector2 direction;
     private Animator Animator;
@@ -15,6 +20,7 @@ public class TopDownMovement : MonoBehaviour
     private float ySupLimit = 16.0f;
     private float xLeftLimit = -28.41f;
     private float xRightLimit = 11.43f;
+    public static float dir = 0;
 
     private void Start()
     {
@@ -22,9 +28,38 @@ public class TopDownMovement : MonoBehaviour
         Animator = GetComponent<Animator>();
     }
 
+    public void TomarDaño(float daño)
+    {
+        vida -= daño;
+        if (vida <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemigo"))
+        {
+            TomarDaño(daño);
+           
+        }
+
+    }
     private void Update()
     {
-        direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;       
+        horizontalInput = Input.GetAxis("Horizontal");
+        if (horizontalInput > 0.01f)
+        {
+            dir = 1;
+        }
+         if (horizontalInput < -0.01f)
+        {
+            dir = 2;
+        }
+        direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;    
+        
     }
 
     private void FixedUpdate()
@@ -36,15 +71,18 @@ public class TopDownMovement : MonoBehaviour
 
     private void ChangeBodyDirection() 
     {
+
         float scaleX = transform.localScale.x;
         if ((direction.x < 0.0f && scaleX > 0.0f) || (direction.x > 0.0f && scaleX < 0.0f))
         {
+
             transform.localScale = new Vector3(
                     -1 * scaleX,
                     transform.localScale.y,
                     transform.localScale.z
             );
         }
+
     }
 
     private void SetAnimatorValue()
@@ -103,4 +141,5 @@ public class TopDownMovement : MonoBehaviour
     {
         return transform.position.x >= xLeftLimit && transform.position.x <= xRightLimit;
     }
+
 }
