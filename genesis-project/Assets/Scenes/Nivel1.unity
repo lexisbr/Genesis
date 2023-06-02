@@ -20011,6 +20011,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1552417877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1552417879}
+  - component: {fileID: 1552417878}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1552417878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552417877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0a4e50bef0b514a9b91d7358cf0f55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxToGenerate: {fileID: 3502627603931180571, guid: 72839ff8de8a90549bb4d9f129475332, type: 3}
+--- !u!4 &1552417879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552417877}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.4629707, y: 7.047803, z: 0.061384752}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1558291567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20817,6 +20862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de555c351b871734d955bb5b95b70fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxToGenerate: {fileID: 3502627603931180571, guid: 72839ff8de8a90549bb4d9f129475332, type: 3}
   "da\xF1o": 50
   vida: 100
   proyectilprefab: {fileID: 0}

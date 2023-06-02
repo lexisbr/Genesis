@@ -6,6 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class TopDownMovement : MonoBehaviour
 {
+    public GameObject boxToGenerate;
     [SerializeField] private float daño;
     [SerializeField] private float vida;
     private float horizontalInput;
@@ -26,8 +27,17 @@ public class TopDownMovement : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
+        Invoke("crearzombie", 2f);
     }
 
+    private void crearzombie()
+    {
+        Instantiate(boxToGenerate);
+        
+        //Instantiate(boxToGenerate);
+        //Destroy(go, 1); //Destroy after 5 seconds.
+        //Instantiate(bala, controladorDisparo.position, controladorDisparo.rotation);
+    }
     public void TomarDaño(float daño)
     {
         vida -= daño;
