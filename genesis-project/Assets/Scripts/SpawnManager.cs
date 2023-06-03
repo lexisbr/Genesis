@@ -2,24 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject boxToGenerate;
-    // Start is called before the first frame update
-    void Start()
-    {
-        Invoke("crearzombie", 2f);
-    }
+    public GameObject gridObject;
 
-    // Update is called once per frame
+    public Vector2Int grid;
+    public float y = 0;
+
+    public float interval = 5;
+    float timer;
     void Update()
     {
-        
-    }
-
-    private void crearzombie()
+        timer += Time.deltaTime;
+        if (timer >= interval)
+        {
+            Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0f);
+            Instantiate(gridObject, randomPos, Quaternion.identity);
+            //Instantiate(gridObject);
+            timer -= interval;
+        }
+         }
+        private void Start()
     {
-        Instantiate(boxToGenerate);
+      //  GenerateGrid(grid);
     }
+    // Generates a 2D grid on the floor
+
 
 }

@@ -20040,7 +20040,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0a4e50bef0b514a9b91d7358cf0f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxToGenerate: {fileID: 3502627603931180571, guid: 72839ff8de8a90549bb4d9f129475332, type: 3}
+  gridObject: {fileID: 3502627603931180571, guid: 72839ff8de8a90549bb4d9f129475332, type: 3}
+  grid: {x: 0, y: 0}
+  y: 0
+  interval: 5
 --- !u!4 &1552417879
 Transform:
   m_ObjectHideFlags: 0

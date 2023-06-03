@@ -10,11 +10,12 @@ public class bala : MonoBehaviour
 {
     [SerializeField] private float velocidad;
     [SerializeField] private float daño;
+    public AudioSource source;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        source = GetComponent<golpe>();
 
     }
 
@@ -40,6 +41,7 @@ public class bala : MonoBehaviour
     {
         if (other.CompareTag("Enemigo"))
         {
+            source.play();
            other.GetComponent<Enemigo>().TomarDaño(daño);
             Destroy(gameObject);
         }
